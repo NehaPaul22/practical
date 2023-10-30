@@ -1,0 +1,32 @@
+#!/bin/bash
+addition() {
+    echo "result: $(($1 + $2))"
+}
+subtraction() {
+    echo "result: $(($1 - $2))"
+}
+
+multiplication(){
+    echo "result: $(($1 * $2))"
+}
+division() {
+    if[$2-eq 0]; 'then'
+    echo"error: division by zero is not allowed"
+    'else'
+    echo "result: $(($1 / $2))"
+   ' fi'
+}
+
+echo "simple calculator"
+echo "available operations: + - * /"
+read -p "enter first number: " num1
+read -p "enter second number: " num2
+read -p "enter operation" operation
+
+case $operation in
+"+") addition $num1 $num2;;
+"-") subtraction $num1 $num2;;
+"*") multiplication $num1 $num2;;
+"/") division $num1 $num2;;
+*) echo "invalid operation";;
+esac
